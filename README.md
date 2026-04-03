@@ -1,4 +1,3 @@
-[dashboard-README.md](https://github.com/user-attachments/files/26363163/dashboard-README.md)
 # The DOR Suite
 
 A collection of workflow tools built for the Director of Rehabilitation. Simplifies daily operations from family communication to billing, meetings, and staff tracking.
