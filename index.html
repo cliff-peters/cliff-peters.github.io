@@ -261,7 +261,78 @@ body{
 }
 .copy-script-btn:hover{background:rgba(62,207,122,0.14);border-color:var(--green);}
 
-/* Footer */
+/* My Credentials section */
+.creds-section{
+  max-width:860px;margin:28px auto 0;
+  border-top:1px solid var(--bdr);padding-top:28px;
+}
+.creds-toggle{
+  display:flex;align-items:center;gap:10px;
+  background:none;border:none;cursor:pointer;
+  font-family:"Mulish",sans-serif;
+  color:var(--muted);font-size:11px;font-weight:700;
+  letter-spacing:0.08em;text-transform:uppercase;
+  padding:0;transition:color 0.2s;
+}
+.creds-toggle:hover{color:var(--text);}
+.creds-toggle svg{transition:transform 0.25s;flex-shrink:0;}
+.creds-toggle.open svg{transform:rotate(180deg);}
+.creds-toggle .dot-amber{
+  width:6px;height:6px;border-radius:50%;
+  background:var(--amber);flex-shrink:0;
+}
+.creds-panel{display:none;margin-top:20px;}
+.creds-panel.open{display:block;}
+.creds-lock{
+  background:var(--surface);border:1px solid var(--bdr);
+  border-radius:10px;padding:20px 22px;
+}
+.creds-lock-title{font-size:9px;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;}
+.creds-pw-row{display:flex;gap:8px;}
+.creds-pw-input{
+  flex:1;background:var(--bg);border:1px solid var(--bdr);
+  border-radius:6px;color:var(--text);
+  font-family:"Mulish",sans-serif;font-size:13px;font-weight:600;
+  padding:10px 12px;outline:none;transition:border-color 0.15s;
+}
+.creds-pw-input:focus{border-color:var(--amber);}
+.creds-pw-btn{
+  background:rgba(240,168,48,0.08);border:1px solid rgba(240,168,48,0.25);
+  color:var(--amber);font-family:"Mulish",sans-serif;
+  font-size:10px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;
+  padding:10px 16px;border-radius:6px;cursor:pointer;transition:all 0.2s;white-space:nowrap;
+}
+.creds-pw-btn:hover{background:rgba(240,168,48,0.15);border-color:var(--amber);}
+.creds-error{font-size:11px;font-weight:700;color:var(--red);margin-top:8px;display:none;}
+.creds-vault{display:none;margin-top:16px;}
+.creds-vault.open{display:block;}
+.creds-item{margin-bottom:14px;}
+.creds-item:last-child{margin-bottom:0;}
+.creds-item-label{font-size:9px;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;}
+.creds-item-row{display:flex;gap:8px;align-items:center;}
+.creds-item-val{
+  flex:1;background:var(--bg);border:1px solid var(--bdr);
+  border-radius:6px;color:var(--text);
+  font-family:"Mulish",sans-serif;font-size:12px;font-weight:600;
+  padding:10px 12px;outline:none;transition:border-color 0.15s;
+}
+.creds-item-val:focus{border-color:var(--amber);}
+.creds-copy-btn{
+  background:rgba(90,157,230,0.08);border:1px solid rgba(90,157,230,0.2);
+  color:var(--blue);font-family:"Mulish",sans-serif;
+  font-size:10px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;
+  padding:10px 14px;border-radius:6px;cursor:pointer;transition:all 0.2s;white-space:nowrap;
+}
+.creds-copy-btn:hover{background:rgba(90,157,230,0.15);border-color:var(--blue);}
+.creds-save-btn{
+  margin-top:16px;
+  background:rgba(62,207,122,0.08);border:1px solid rgba(62,207,122,0.2);
+  color:var(--green);font-family:"Mulish",sans-serif;
+  font-size:10px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;
+  padding:10px 20px;border-radius:6px;cursor:pointer;transition:all 0.2s;
+}
+.creds-save-btn:hover{background:rgba(62,207,122,0.14);border-color:var(--green);}
+.creds-saved-msg{font-size:11px;font-weight:700;color:var(--green);margin-top:8px;display:none;}
 .footer{
   max-width:860px;margin:48px auto 0;
   display:flex;align-items:center;justify-content:center;gap:10px;
@@ -484,6 +555,42 @@ function respond(data) {
   </div>
 </div>
 
+<!-- My Credentials -->
+<div class="creds-section">
+  <button class="creds-toggle" id="credsToggle" onclick="toggleCreds()">
+    <span class="dot-amber"></span>
+    My Credentials
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+  </button>
+  <div class="creds-panel" id="credsPanel">
+    <div class="creds-lock">
+      <div class="creds-lock-title">Enter Password to Access</div>
+      <div class="creds-pw-row">
+        <input type="password" class="creds-pw-input" id="credsPwInput" placeholder="Password" onkeydown="if(event.key==='Enter')unlockCreds()"/>
+        <button class="creds-pw-btn" onclick="unlockCreds()">Unlock</button>
+      </div>
+      <div class="creds-error" id="credsError">Incorrect password.</div>
+      <div class="creds-vault" id="credsVault">
+        <div class="creds-item">
+          <div class="creds-item-label">Call Out Tracker — Apps Script URL</div>
+          <div class="creds-item-row">
+            <input type="text" class="creds-item-val" id="credsUrl" placeholder="Paste your Apps Script URL here"/>
+            <button class="creds-copy-btn" onclick="copyCred('credsUrl',this)">Copy</button>
+          </div>
+        </div>
+        <div class="creds-item">
+          <div class="creds-item-label">Notes</div>
+          <div class="creds-item-row">
+            <input type="text" class="creds-item-val" id="credsNotes" placeholder="Any additional notes..."/>
+          </div>
+        </div>
+        <button class="creds-save-btn" onclick="saveCreds()">Save Notes</button>
+        <div class="creds-saved-msg" id="credsSavedMsg">Notes saved.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- Footer -->
 <div class="footer">
   <div class="footer-logo">CP</div>
@@ -491,6 +598,63 @@ function respond(data) {
 </div>
 
 <script>
+// Credentials
+function toggleCreds(){
+  const panel=document.getElementById('credsPanel');
+  const toggle=document.getElementById('credsToggle');
+  const open=panel.classList.toggle('open');
+  toggle.classList.toggle('open',open);
+  if(!open){
+    document.getElementById('credsVault').classList.remove('open');
+    document.getElementById('credsPwInput').value='';
+    document.getElementById('credsError').style.display='none';
+  }
+}
+
+function unlockCreds(){
+  const pw=document.getElementById('credsPwInput').value;
+  const err=document.getElementById('credsError');
+  if(pw==='Powerback9927'){
+    err.style.display='none';
+    const vault=document.getElementById('credsVault');
+    vault.classList.add('open');
+    // Load saved values — URL is hardcoded, notes from localStorage
+    document.getElementById('credsUrl').value='https://script.google.com/macros/s/AKfycby6smHfZX3hz5Gmp1v2Xd2BBZXL0NqPLkLZoRTDKp1m4hLomgqxA4PgJlXrJr-V_G7mTw/exec';
+    try{
+      document.getElementById('credsNotes').value=localStorage.getItem('dor-creds-notes')||'';
+    }catch(e){}
+  } else {
+    err.style.display='block';
+    document.getElementById('credsPwInput').value='';
+  }
+}
+
+function saveCreds(){
+  try{
+    localStorage.setItem('dor-creds-url',document.getElementById('credsUrl').value);
+    localStorage.setItem('dor-creds-notes',document.getElementById('credsNotes').value);
+    const msg=document.getElementById('credsSavedMsg');
+    msg.style.display='block';
+    setTimeout(()=>{msg.style.display='none';},2500);
+  }catch(e){}
+}
+
+function copyCred(id,btn){
+  const val=document.getElementById(id).value;
+  if(!val)return;
+  if(navigator.clipboard&&window.isSecureContext){
+    navigator.clipboard.writeText(val);
+  } else {
+    const ta=document.createElement('textarea');
+    ta.value=val;ta.style.position='fixed';ta.style.opacity='0';
+    document.body.appendChild(ta);ta.focus();ta.select();
+    try{document.execCommand('copy');}catch(e){}
+    document.body.removeChild(ta);
+  }
+  btn.textContent='Copied!';
+  setTimeout(()=>{btn.textContent='Copy';},2000);
+}
+
 function toggleSetup(){
   const panel=document.getElementById('setupPanel');
   const toggle=document.getElementById('setupToggle');
