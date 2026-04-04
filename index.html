@@ -15,115 +15,30 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
 :root{
-  --bg:#0c0f14;
-  --surface:#181d28;
-  --surface2:#1e2430;
-  --bdr:#333a48;
-  --blue:#5a9de6;
-  --green:#3ecf7a;
-  --amber:#f0a830;
-  --red:#ef4444;
-  --purple:#a78bfa;
-  --text:#f0f2f5;
-  --muted:#9ca3b4;
-  --logo-grad:linear-gradient(135deg,#4a90d9,#3ecf7a);
-  --logo-text:#0c0f14;
-  --teal:#2dd4bf;
+  --bg:#0c0f14;--surface:#181d28;--surface2:#1e2430;--bdr:#333a48;
+  --blue:#5a9de6;--green:#3ecf7a;--amber:#f0a830;--red:#ef4444;
+  --purple:#a78bfa;--teal:#2dd4bf;
+  --text:#f0f2f5;--muted:#9ca3b4;
+  --logo-grad:linear-gradient(135deg,#4a90d9,#3ecf7a);--logo-text:#0c0f14;
 }
-body{
-  min-height:100vh;
-  background:var(--bg);
-  font-family:"Mulish",sans-serif;
-  color:var(--text);
-  padding:48px 24px 80px;
-}
-::-webkit-scrollbar{width:5px;}
-::-webkit-scrollbar-thumb{background:var(--bdr);border-radius:3px;}
-
-/* ── Header ── */
-.header{
-  max-width:860px;margin:0 auto 48px;
-  text-align:center;
-}
-.header-logo{
-  display:inline-flex;align-items:center;justify-content:center;
-  width:60px;height:60px;
-  background:var(--logo-grad);
-  border-radius:14px;
-  font-size:18px;font-weight:900;color:var(--logo-text);
-  letter-spacing:-0.5px;
-  flex-shrink:0;
-  animation:softPulse 4s ease-in-out infinite;
-}
-.header-lockup{
-  display:flex;align-items:center;justify-content:center;
-  gap:18px;margin-bottom:14px;
-}
-@keyframes softPulse{
-  0%,100%{box-shadow:0 0 0 0 rgba(74,144,217,0);}
-  50%{box-shadow:0 0 0 8px rgba(74,144,217,0.12);}
-}
-.header-eyebrow{
-  font-size:10px;font-weight:800;
-  letter-spacing:0.18em;text-transform:uppercase;
-  color:var(--blue);margin-bottom:10px;
-}
-.header-title{
-  font-size:clamp(32px,4.5vw,44px);
-  font-weight:700;line-height:1.05;
-  margin-bottom:0;
-  color:var(--text);
-  letter-spacing:0.04em;
-}
-.header-title span{
-  font-weight:900;
-  letter-spacing:0.01em;
-  background:linear-gradient(135deg,#5a9de6,#3ecf7a);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-  background-clip:text;
-}
-.header-sub{
-  font-size:13px;font-weight:600;color:var(--muted);
-  letter-spacing:0.02em;
-  padding-bottom:28px;
-  border-bottom:1px solid var(--bdr);
-}
-
-/* ── Grid ── */
-.grid{
-  max-width:860px;margin:0 auto;
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
-  gap:16px;
-}
-
-/* ── Tool Cards ── */
-.tool-card{
-  display:block;
-  background:var(--surface);
-  border:1px solid var(--bdr);
-  border-radius:12px;
-  padding:22px 22px 18px;
-  text-decoration:none;
-  color:var(--text);
-  transition:border-color 0.2s,background 0.2s,transform 0.2s;
-  opacity:0;
-  animation:cardIn 0.5s ease forwards;
-  position:relative;
-  overflow:hidden;
-}
-.tool-card::before{
-  content:'';
-  position:absolute;inset:0;
-  border-radius:12px;
-  opacity:0;
-  transition:opacity 0.3s;
-}
+body{min-height:100vh;background:var(--bg);font-family:"Mulish",sans-serif;color:var(--text);padding:48px 24px 80px;}
+::-webkit-scrollbar{width:5px;}::-webkit-scrollbar-thumb{background:var(--bdr);border-radius:3px;}
+.header{max-width:860px;margin:0 auto 48px;text-align:center;}
+.header-logo{display:inline-flex;align-items:center;justify-content:center;width:60px;height:60px;background:var(--logo-grad);border-radius:14px;font-size:18px;font-weight:900;color:var(--logo-text);letter-spacing:-0.5px;flex-shrink:0;animation:softPulse 4s ease-in-out infinite;}
+.header-lockup{display:flex;align-items:center;justify-content:center;gap:18px;margin-bottom:14px;}
+@keyframes softPulse{0%,100%{box-shadow:0 0 0 0 rgba(74,144,217,0);}50%{box-shadow:0 0 0 8px rgba(74,144,217,0.12);}}
+.header-title{font-size:clamp(32px,4.5vw,44px);font-weight:700;line-height:1.05;margin-bottom:0;color:var(--text);letter-spacing:0.04em;}
+.header-title span{font-weight:900;letter-spacing:0.01em;background:linear-gradient(135deg,#5a9de6,#3ecf7a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.header-sub{font-size:13px;font-weight:600;color:var(--muted);letter-spacing:0.02em;padding-bottom:28px;border-bottom:1px solid var(--bdr);}
+.grid{max-width:860px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;}
+.tool-card{display:block;background:var(--surface);border:1px solid var(--bdr);border-radius:12px;padding:22px 22px 18px;text-decoration:none;color:var(--text);transition:border-color 0.2s,background 0.2s,transform 0.2s;opacity:0;animation:cardIn 0.5s ease forwards;position:relative;overflow:hidden;}
+.tool-card::before{content:'';position:absolute;inset:0;border-radius:12px;opacity:0;transition:opacity 0.3s;}
 .tool-card.card-blue::before{background:radial-gradient(circle at 0% 0%,rgba(90,157,230,0.06),transparent 60%);}
 .tool-card.card-green::before{background:radial-gradient(circle at 0% 0%,rgba(62,207,122,0.06),transparent 60%);}
 .tool-card.card-amber::before{background:radial-gradient(circle at 0% 0%,rgba(240,168,48,0.06),transparent 60%);}
 .tool-card.card-red::before{background:radial-gradient(circle at 0% 0%,rgba(239,68,68,0.06),transparent 60%);}
 .tool-card.card-purple::before{background:radial-gradient(circle at 0% 0%,rgba(167,139,250,0.06),transparent 60%);}
+.tool-card.card-teal::before{background:radial-gradient(circle at 0% 0%,rgba(45,212,191,0.06),transparent 60%);}
 .tool-card:hover::before{opacity:1;}
 .tool-card:hover{transform:translateY(-2px);}
 .tool-card.card-blue:hover{border-color:rgba(90,157,230,0.5);}
@@ -131,177 +46,73 @@ body{
 .tool-card.card-amber:hover{border-color:rgba(240,168,48,0.5);}
 .tool-card.card-red:hover{border-color:rgba(239,68,68,0.5);}
 .tool-card.card-purple:hover{border-color:rgba(167,139,250,0.5);}
-
-@keyframes cardIn{
-  from{opacity:0;transform:translateY(16px);}
-  to{opacity:1;transform:translateY(0);}
-}
+.tool-card.card-teal:hover{border-color:rgba(45,212,191,0.5);}
+@keyframes cardIn{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
 .tool-card:nth-child(1){animation-delay:0.05s;}
 .tool-card:nth-child(2){animation-delay:0.12s;}
 .tool-card:nth-child(3){animation-delay:0.19s;}
 .tool-card:nth-child(4){animation-delay:0.26s;}
 .tool-card:nth-child(5){animation-delay:0.33s;}
 .tool-card:nth-child(6){animation-delay:0.40s;}
-
-/* Card icon */
-.tool-icon{
-  width:44px;height:44px;border-radius:10px;
-  display:flex;align-items:center;justify-content:center;
-  margin-bottom:14px;
-  transition:transform 0.2s;
-}
+.tool-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:14px;transition:transform 0.2s;}
 .tool-card:hover .tool-icon{transform:scale(1.1);}
 .icon-blue{background:rgba(90,157,230,0.12);color:var(--blue);}
 .icon-green{background:rgba(62,207,122,0.12);color:var(--green);}
 .icon-amber{background:rgba(240,168,48,0.12);color:var(--amber);}
 .icon-red{background:rgba(239,68,68,0.12);color:var(--red);}
 .icon-purple{background:rgba(167,139,250,0.12);color:var(--purple);}
-
-/* Card content */
-.tool-name{
-  font-size:15px;font-weight:800;
-  margin-bottom:6px;line-height:1.2;
-}
+.icon-teal{background:rgba(45,212,191,0.12);color:var(--teal);}
+.tool-name{font-size:15px;font-weight:800;margin-bottom:6px;line-height:1.2;}
 .tool-name span{color:var(--blue);}
 .tool-name .accent-green{color:var(--green);}
 .tool-name .accent-amber{color:var(--amber);}
 .tool-name .accent-red{color:var(--red);}
 .tool-name .accent-purple{color:var(--purple);}
-.tool-desc{
-  font-size:12px;font-weight:600;
-  color:var(--muted);line-height:1.65;
-  margin-bottom:16px;
-}
-.tool-tag{
-  font-size:10px;font-weight:800;
-  letter-spacing:0.08em;text-transform:uppercase;
-  color:var(--blue);
-  display:inline-flex;align-items:center;gap:4px;
-}
+.tool-name .accent-teal{color:var(--teal);}
+.tool-desc{font-size:12px;font-weight:600;color:var(--muted);line-height:1.65;margin-bottom:16px;}
+.tool-tag{font-size:10px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;color:var(--blue);display:inline-flex;align-items:center;gap:4px;}
 .tool-tag .arrow{display:inline-block;transition:transform 0.2s;}
 .tool-card:hover .tool-tag .arrow{transform:translateX(4px);}
 .tool-tag.tag-green{color:var(--green);}
 .tool-tag.tag-amber{color:var(--amber);}
 .tool-tag.tag-red{color:var(--red);}
 .tool-tag.tag-purple{color:var(--purple);}
-
-.tool-card.card-teal::before{background:radial-gradient(circle at 0% 0%,rgba(45,212,191,0.06),transparent 60%);}
-.tool-card.card-teal:hover{border-color:rgba(45,212,191,0.5);}
-.icon-teal{background:rgba(45,212,191,0.12);color:var(--teal);}
 .tool-tag.tag-teal{color:var(--teal);}
-.tool-name .accent-teal{color:var(--teal);}
-.setup-section{
-  max-width:860px;margin:40px auto 0;
-  border-top:1px solid var(--bdr);
-  padding-top:28px;
-}
-.setup-toggle-mini{
-  display:flex;align-items:center;gap:10px;
-  background:none;border:none;cursor:pointer;
-  font-family:"Mulish",sans-serif;
-  color:var(--muted);font-size:11px;font-weight:700;
-  letter-spacing:0.08em;text-transform:uppercase;
-  padding:0;transition:color 0.2s;
-}
+.setup-section{max-width:860px;margin:40px auto 0;border-top:1px solid var(--bdr);padding-top:28px;}
+.setup-toggle-mini{display:flex;align-items:center;gap:10px;background:none;border:none;cursor:pointer;font-family:"Mulish",sans-serif;color:var(--muted);font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:0;transition:color 0.2s;}
 .setup-toggle-mini:hover{color:var(--text);}
 .setup-toggle-mini svg{transition:transform 0.25s;flex-shrink:0;}
 .setup-toggle-mini.open svg{transform:rotate(180deg);}
-.setup-toggle-mini .dot{
-  width:6px;height:6px;border-radius:50%;
-  background:var(--green);flex-shrink:0;
-}
-
-.setup-panel{
-  display:none;margin-top:20px;
-  background:var(--surface);border:1px solid var(--bdr);
-  border-radius:10px;overflow:hidden;
-}
+.setup-toggle-mini .dot{width:6px;height:6px;border-radius:50%;background:var(--green);flex-shrink:0;}
+.setup-panel{display:none;margin-top:20px;background:var(--surface);border:1px solid var(--bdr);border-radius:10px;overflow:hidden;}
 .setup-panel.open{display:block;}
-
 .setup-tabs{display:flex;border-bottom:1px solid var(--bdr);}
-.setup-tab{
-  flex:1;padding:11px 16px;
-  background:none;border:none;cursor:pointer;
-  font-family:"Mulish",sans-serif;
-  font-size:10px;font-weight:800;
-  letter-spacing:0.08em;text-transform:uppercase;
-  color:var(--muted);transition:color 0.2s;
-  border-bottom:2px solid transparent;margin-bottom:-1px;
-}
+.setup-tab{flex:1;padding:11px 16px;background:none;border:none;cursor:pointer;font-family:"Mulish",sans-serif;font-size:10px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);transition:color 0.2s;border-bottom:2px solid transparent;margin-bottom:-1px;}
 .setup-tab.active{color:var(--green);border-bottom-color:var(--green);}
 .setup-tab:hover:not(.active){color:var(--text);}
-
 .setup-body{padding:20px;}
-.setup-step{
-  display:flex;gap:12px;margin-bottom:14px;
-  font-size:12px;font-weight:600;color:var(--muted);line-height:1.6;
-}
+.setup-step{display:flex;gap:12px;margin-bottom:14px;font-size:12px;font-weight:600;color:var(--muted);line-height:1.6;}
 .setup-step:last-child{margin-bottom:0;}
-.step-num{
-  width:20px;height:20px;border-radius:50%;
-  background:rgba(62,207,122,0.1);border:1px solid rgba(62,207,122,0.2);
-  color:var(--green);font-size:10px;font-weight:800;
-  display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;
-}
+.step-num{width:20px;height:20px;border-radius:50%;background:rgba(62,207,122,0.1);border:1px solid rgba(62,207,122,0.2);color:var(--green);font-size:10px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
 .setup-step a{color:var(--blue);text-decoration:none;}
 .setup-step a:hover{text-decoration:underline;}
-.code-block{
-  background:var(--bg);border:1px solid var(--bdr);border-radius:6px;
-  padding:12px 14px;margin-top:10px;
-  font-family:monospace;font-size:11px;color:var(--muted);
-  line-height:1.7;max-height:180px;overflow-y:auto;
-  white-space:pre;
-}
-.copy-script-btn{
-  margin-top:10px;
-  background:rgba(62,207,122,0.08);border:1px solid rgba(62,207,122,0.2);
-  color:var(--green);font-family:"Mulish",sans-serif;
-  font-size:10px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;
-  padding:6px 14px;border-radius:4px;cursor:pointer;transition:all 0.2s;
-}
+.code-block{background:var(--bg);border:1px solid var(--bdr);border-radius:6px;padding:12px 14px;margin-top:10px;font-family:monospace;font-size:11px;color:var(--muted);line-height:1.7;max-height:180px;overflow-y:auto;white-space:pre;}
+.copy-script-btn{margin-top:10px;background:rgba(62,207,122,0.08);border:1px solid rgba(62,207,122,0.2);color:var(--green);font-family:"Mulish",sans-serif;font-size:10px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;padding:6px 14px;border-radius:4px;cursor:pointer;transition:all 0.2s;}
 .copy-script-btn:hover{background:rgba(62,207,122,0.14);border-color:var(--green);}
-
-/* My Credentials section */
-.creds-section{
-  max-width:860px;margin:28px auto 0;
-  border-top:1px solid var(--bdr);padding-top:28px;
-}
-.creds-toggle{
-  display:flex;align-items:center;gap:10px;
-  background:none;border:none;cursor:pointer;
-  font-family:"Mulish",sans-serif;
-  color:var(--muted);font-size:11px;font-weight:700;
-  letter-spacing:0.08em;text-transform:uppercase;
-  padding:0;transition:color 0.2s;
-}
+.creds-section{max-width:860px;margin:28px auto 0;border-top:1px solid var(--bdr);padding-top:28px;}
+.creds-toggle{display:flex;align-items:center;gap:10px;background:none;border:none;cursor:pointer;font-family:"Mulish",sans-serif;color:var(--muted);font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:0;transition:color 0.2s;}
 .creds-toggle:hover{color:var(--text);}
 .creds-toggle svg{transition:transform 0.25s;flex-shrink:0;}
 .creds-toggle.open svg{transform:rotate(180deg);}
-.creds-toggle .dot-amber{
-  width:6px;height:6px;border-radius:50%;
-  background:var(--amber);flex-shrink:0;
-}
+.creds-toggle .dot-amber{width:6px;height:6px;border-radius:50%;background:var(--amber);flex-shrink:0;}
 .creds-panel{display:none;margin-top:20px;}
 .creds-panel.open{display:block;}
-.creds-lock{
-  background:var(--surface);border:1px solid var(--bdr);
-  border-radius:10px;padding:20px 22px;
-}
+.creds-lock{background:var(--surface);border:1px solid var(--bdr);border-radius:10px;padding:20px 22px;}
 .creds-lock-title{font-size:9px;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;}
 .creds-pw-row{display:flex;gap:8px;}
-.creds-pw-input{
-  flex:1;background:var(--bg);border:1px solid var(--bdr);
-  border-radius:6px;color:var(--text);
-  font-family:"Mulish",sans-serif;font-size:13px;font-weight:600;
-  padding:10px 12px;outline:none;transition:border-color 0.15s;
-}
+.creds-pw-input{flex:1;background:var(--bg);border:1px solid var(--bdr);border-radius:6px;color:var(--text);font-family:"Mulish",sans-serif;font-size:13px;font-weight:600;padding:10px 12px;outline:none;transition:border-color 0.15s;}
 .creds-pw-input:focus{border-color:var(--amber);}
-.creds-pw-btn{
-  background:rgba(240,168,48,0.08);border:1px solid rgba(240,168,48,0.25);
-  color:var(--amber);font-family:"Mulish",sans-serif;
-  font-size:10px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;
-  padding:10px 16px;border-radius:6px;cursor:pointer;transition:all 0.2s;white-space:nowrap;
-}
+.creds-pw-btn{background:rgba(240,168,48,0.08);border:1px solid rgba(240,168,48,0.25);color:var(--amber);font-family:"Mulish",sans-serif;font-size:10px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;padding:10px 16px;border-radius:6px;cursor:pointer;transition:all 0.2s;white-space:nowrap;}
 .creds-pw-btn:hover{background:rgba(240,168,48,0.15);border-color:var(--amber);}
 .creds-error{font-size:11px;font-weight:700;color:var(--red);margin-top:8px;display:none;}
 .creds-vault{display:none;margin-top:16px;}
@@ -310,47 +121,16 @@ body{
 .creds-item:last-child{margin-bottom:0;}
 .creds-item-label{font-size:9px;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;}
 .creds-item-row{display:flex;gap:8px;align-items:center;}
-.creds-item-val{
-  flex:1;background:var(--bg);border:1px solid var(--bdr);
-  border-radius:6px;color:var(--text);
-  font-family:"Mulish",sans-serif;font-size:12px;font-weight:600;
-  padding:10px 12px;outline:none;transition:border-color 0.15s;
-}
+.creds-item-val{flex:1;background:var(--bg);border:1px solid var(--bdr);border-radius:6px;color:var(--text);font-family:"Mulish",sans-serif;font-size:12px;font-weight:600;padding:10px 12px;outline:none;transition:border-color 0.15s;}
 .creds-item-val:focus{border-color:var(--amber);}
-.creds-copy-btn{
-  background:rgba(90,157,230,0.08);border:1px solid rgba(90,157,230,0.2);
-  color:var(--blue);font-family:"Mulish",sans-serif;
-  font-size:10px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;
-  padding:10px 14px;border-radius:6px;cursor:pointer;transition:all 0.2s;white-space:nowrap;
-}
+.creds-copy-btn{background:rgba(90,157,230,0.08);border:1px solid rgba(90,157,230,0.2);color:var(--blue);font-family:"Mulish",sans-serif;font-size:10px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;padding:10px 14px;border-radius:6px;cursor:pointer;transition:all 0.2s;white-space:nowrap;}
 .creds-copy-btn:hover{background:rgba(90,157,230,0.15);border-color:var(--blue);}
-.creds-save-btn{
-  margin-top:16px;
-  background:rgba(62,207,122,0.08);border:1px solid rgba(62,207,122,0.2);
-  color:var(--green);font-family:"Mulish",sans-serif;
-  font-size:10px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;
-  padding:10px 20px;border-radius:6px;cursor:pointer;transition:all 0.2s;
-}
+.creds-save-btn{margin-top:16px;background:rgba(62,207,122,0.08);border:1px solid rgba(62,207,122,0.2);color:var(--green);font-family:"Mulish",sans-serif;font-size:10px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;padding:10px 20px;border-radius:6px;cursor:pointer;transition:all 0.2s;}
 .creds-save-btn:hover{background:rgba(62,207,122,0.14);border-color:var(--green);}
 .creds-saved-msg{font-size:11px;font-weight:700;color:var(--green);margin-top:8px;display:none;}
-.footer{
-  max-width:860px;margin:48px auto 0;
-  display:flex;align-items:center;justify-content:center;gap:10px;
-  border-top:1px solid var(--bdr);padding-top:28px;
-}
-.footer-logo{
-  width:24px;height:24px;
-  background:var(--logo-grad);
-  border-radius:5px;
-  display:flex;align-items:center;justify-content:center;
-  font-size:8px;font-weight:900;color:var(--logo-text);
-  animation:softPulse 4s ease-in-out infinite;
-}
-.footer-text{
-  font-size:10px;font-weight:700;
-  color:var(--muted);letter-spacing:0.04em;
-}
-
+.footer{max-width:860px;margin:48px auto 0;display:flex;align-items:center;justify-content:center;gap:10px;border-top:1px solid var(--bdr);padding-top:28px;}
+.footer-logo{width:24px;height:24px;background:var(--logo-grad);border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:900;color:var(--logo-text);animation:softPulse 4s ease-in-out infinite;}
+.footer-text{font-size:10px;font-weight:700;color:var(--muted);letter-spacing:0.04em;}
 @media(max-width:560px){
   body{padding:32px 16px 60px;}
   .header{margin-bottom:32px;}
@@ -362,7 +142,6 @@ body{
 </head>
 <body>
 
-<!-- Header -->
 <div class="header">
   <div class="header-lockup">
     <div class="header-logo">CP</div>
@@ -371,10 +150,8 @@ body{
   <div class="header-sub">Workflow tools that save time and protect billing.</div>
 </div>
 
-<!-- Tool Grid -->
 <div class="grid">
 
-  <!-- Family Connect -->
   <a class="tool-card card-blue" href="https://cliff-peters.github.io/family-connect/" target="_blank">
     <div class="tool-icon icon-blue">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -387,7 +164,6 @@ body{
     <div class="tool-tag">Open Tool <span class="arrow">→</span></div>
   </a>
 
-  <!-- Unit Calc -->
   <a class="tool-card card-green" href="https://cliff-peters.github.io/unit-calculator/" target="_blank">
     <div class="tool-icon icon-green">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -402,7 +178,6 @@ body{
     <div class="tool-tag tag-green">Open Tool <span class="arrow">→</span></div>
   </a>
 
-  <!-- Game Plan -->
   <a class="tool-card card-amber" href="https://cliff-peters.github.io/game-plan/" target="_blank">
     <div class="tool-icon icon-amber">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -419,7 +194,6 @@ body{
     <div class="tool-tag tag-amber">Open Tool <span class="arrow">→</span></div>
   </a>
 
-  <!-- Call Out Tracker -->
   <a class="tool-card card-red" href="https://cliff-peters.github.io/callout-tracker/" target="_blank">
     <div class="tool-icon icon-red">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -429,13 +203,10 @@ body{
       </svg>
     </div>
     <div class="tool-name">Call Out <span class="accent-red">Tracker</span></div>
-    <div class="tool-desc">Log and track employee call outs by month with trend charts, per-employee summaries, and optional Sheets sync.
-  
-    </div>
+    <div class="tool-desc">Log and track employee call outs by month with trend charts, per-employee summaries, and optional Sheets sync.</div>
     <div class="tool-tag tag-red">Open Tool <span class="arrow">→</span></div>
   </a>
 
-  <!-- Skilled Language Reference -->
   <a class="tool-card card-purple" href="https://cliff-peters.github.io/skilled-lang/" target="_blank">
     <div class="tool-icon icon-purple">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -444,11 +215,10 @@ body{
       </svg>
     </div>
     <div class="tool-name">Skilled Language <span class="accent-purple">Reference</span></div>
-    <div class="tool-desc">275 audit-defensible documentation phrases for PT, OT, and ST across 17 categories. Tap to copy into any note.</div>
+    <div class="tool-desc">297 audit-defensible documentation phrases for PT, OT, and ST across 18 categories. Tap to copy into any note.</div>
     <div class="tool-tag tag-purple">Open Tool <span class="arrow">→</span></div>
   </a>
 
-  <!-- Scribe -->
   <a class="tool-card card-teal" href="https://cliff-peters.github.io/scribe/" target="_blank">
     <div class="tool-icon icon-teal">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -462,19 +232,19 @@ body{
   </a>
 
 </div>
+
+<!-- Setup Section -->
 <div class="setup-section">
   <button class="setup-toggle-mini" id="setupToggle" onclick="toggleSetup()">
     <span class="dot"></span>
     Google Sheets Setup
     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
   </button>
-
   <div class="setup-panel" id="setupPanel">
     <div class="setup-tabs">
       <button class="setup-tab active" id="tabInstr" onclick="switchTab('instr')">Instructions</button>
       <button class="setup-tab" id="tabScript" onclick="switchTab('script')">Apps Script</button>
     </div>
-
     <div class="setup-body" id="bodyInstr">
       <div class="setup-step">
         <div class="step-num">1</div>
@@ -494,14 +264,13 @@ body{
       </div>
       <div class="setup-step">
         <div class="step-num">5</div>
-        <div>Open the Call Out Tracker, click <strong style="color:var(--text);">Connect Sheets</strong>, paste your deployment URL, and click Save. The status dot will turn green when connected.<div>
-        <div>
-          <div class="setup-step">
-          </div class="step-num">6</div>
-        <div>You may notice a brief delay when adding or deleting entries - this is normal. Each change routes through Google's servers to read and write to your sheet, which adds a second or two compared to local browser storage.</div>
+        <div>Open the Call Out Tracker, click <strong style="color:var(--text);">Connect Sheets</strong>, paste your deployment URL, and click Save. The status dot will turn green when connected.</div>
+      </div>
+      <div class="setup-step">
+        <div class="step-num">6</div>
+        <div>You may notice a brief delay when adding or deleting entries — this is normal. Each change routes through Google's servers to read and write to your sheet, which adds a second or two compared to local browser storage.</div>
       </div>
     </div>
-
     <div class="setup-body" id="bodyScript" style="display:none;">
       <div class="setup-step">
         <div class="step-num">1</div>
@@ -578,7 +347,7 @@ function respond(data) {
         <div class="creds-item">
           <div class="creds-item-label">Call Out Tracker — Apps Script URL</div>
           <div class="creds-item-row">
-            <input type="text" class="creds-item-val" id="credsUrl" placeholder="Paste your Apps Script URL here"/>
+            <input type="text" class="creds-item-val" id="credsUrl" readonly/>
             <button class="creds-copy-btn" onclick="copyCred('credsUrl',this)">Copy</button>
           </div>
         </div>
@@ -598,82 +367,15 @@ function respond(data) {
 <!-- Footer -->
 <div class="footer">
   <div class="footer-logo">CP</div>
-  <div class="footer-text">Designed by Cliff Peters</div>
+  <div class="footer-text">Built by Cliff Peters</div>
 </div>
 
 <script>
-// Credentials
-function toggleCreds(){
-  const panel=document.getElementById('credsPanel');
-  const toggle=document.getElementById('credsToggle');
-  const open=panel.classList.toggle('open');
-  toggle.classList.toggle('open',open);
-  if(!open){
-    document.getElementById('credsVault').classList.remove('open');
-    document.getElementById('credsPwInput').value='';
-    document.getElementById('credsError').style.display='none';
-  }
-}
-
-function unlockCreds(){
-  const pw=document.getElementById('credsPwInput').value;
-  const err=document.getElementById('credsError');
-  if(pw==='Powerback9927'){
-    err.style.display='none';
-    const vault=document.getElementById('credsVault');
-    vault.classList.add('open');
-    // Load saved values — URL is hardcoded, notes from localStorage
-    document.getElementById('credsUrl').value='https://script.google.com/macros/s/AKfycby6smHfZX3hz5Gmp1v2Xd2BBZXL0NqPLkLZoRTDKp1m4hLomgqxA4PgJlXrJr-V_G7mTw/exec';
-    try{
-      document.getElementById('credsNotes').value=localStorage.getItem('dor-creds-notes')||'';
-    }catch(e){}
-  } else {
-    err.style.display='block';
-    document.getElementById('credsPwInput').value='';
-  }
-}
-
-function saveCreds(){
-  try{
-    localStorage.setItem('dor-creds-url',document.getElementById('credsUrl').value);
-    localStorage.setItem('dor-creds-notes',document.getElementById('credsNotes').value);
-    const msg=document.getElementById('credsSavedMsg');
-    msg.style.display='block';
-    setTimeout(()=>{msg.style.display='none';},2500);
-  }catch(e){}
-}
-
-function copyCred(id,btn){
-  const val=document.getElementById(id).value;
-  if(!val)return;
-  if(navigator.clipboard&&window.isSecureContext){
-    navigator.clipboard.writeText(val);
-  } else {
-    const ta=document.createElement('textarea');
-    ta.value=val;ta.style.position='fixed';ta.style.opacity='0';
-    document.body.appendChild(ta);ta.focus();ta.select();
-    try{document.execCommand('copy');}catch(e){}
-    document.body.removeChild(ta);
-  }
-  btn.textContent='Copied!';
-  setTimeout(()=>{btn.textContent='Copy';},2000);
-}
-
 function toggleSetup(){
   const panel=document.getElementById('setupPanel');
   const toggle=document.getElementById('setupToggle');
   const open=panel.classList.toggle('open');
   toggle.classList.toggle('open',open);
-}
-
-function openSetup(e){
-  e.preventDefault();
-  e.stopPropagation();
-  const panel=document.getElementById('setupPanel');
-  const toggle=document.getElementById('setupToggle');
-  panel.classList.add('open');
-  toggle.classList.add('open');
-  document.getElementById('setupToggle').scrollIntoView({behavior:'smooth',block:'start'});
 }
 
 function switchTab(tab){
@@ -700,7 +402,57 @@ function copyScript(){
     document.body.removeChild(ta);
   }
 }
-</script>
 
+function toggleCreds(){
+  const panel=document.getElementById('credsPanel');
+  const toggle=document.getElementById('credsToggle');
+  const open=panel.classList.toggle('open');
+  toggle.classList.toggle('open',open);
+  if(!open){
+    document.getElementById('credsVault').classList.remove('open');
+    document.getElementById('credsPwInput').value='';
+    document.getElementById('credsError').style.display='none';
+  }
+}
+
+function unlockCreds(){
+  const pw=document.getElementById('credsPwInput').value;
+  const err=document.getElementById('credsError');
+  if(pw==='Powerback9927'){
+    err.style.display='none';
+    document.getElementById('credsVault').classList.add('open');
+    document.getElementById('credsUrl').value='https://script.google.com/macros/s/AKfycby6smHfZX3hz5Gmp1v2Xd2BBZXL0NqPLkLZoRTDKp1m4hLomgqxA4PgJlXrJr-V_G7mTw/exec';
+    try{document.getElementById('credsNotes').value=localStorage.getItem('dor-creds-notes')||'';}catch(e){}
+  } else {
+    err.style.display='block';
+    document.getElementById('credsPwInput').value='';
+  }
+}
+
+function saveCreds(){
+  try{
+    localStorage.setItem('dor-creds-notes',document.getElementById('credsNotes').value);
+    const msg=document.getElementById('credsSavedMsg');
+    msg.style.display='block';
+    setTimeout(()=>{msg.style.display='none';},2500);
+  }catch(e){}
+}
+
+function copyCred(id,btn){
+  const val=document.getElementById(id).value;
+  if(!val)return;
+  if(navigator.clipboard&&window.isSecureContext){
+    navigator.clipboard.writeText(val);
+  } else {
+    const ta=document.createElement('textarea');
+    ta.value=val;ta.style.position='fixed';ta.style.opacity='0';
+    document.body.appendChild(ta);ta.focus();ta.select();
+    try{document.execCommand('copy');}catch(e){}
+    document.body.removeChild(ta);
+  }
+  btn.textContent='Copied!';
+  setTimeout(()=>{btn.textContent='Copy';},2000);
+}
+</script>
 </body>
 </html>
