@@ -99,7 +99,6 @@ body{min-height:100vh;background:var(--bg);font-family:"Mulish",sans-serif;color
 .code-block{background:var(--bg);border:1px solid var(--bdr);border-radius:6px;padding:12px 14px;margin-top:10px;font-family:monospace;font-size:11px;color:var(--muted);line-height:1.7;max-height:180px;overflow-y:auto;white-space:pre;}
 .copy-script-btn{margin-top:10px;background:rgba(62,207,122,0.08);border:1px solid rgba(62,207,122,0.2);color:var(--green);font-family:"Mulish",sans-serif;font-size:10px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;padding:6px 14px;border-radius:4px;cursor:pointer;transition:all 0.2s;}
 .copy-script-btn:hover{background:rgba(62,207,122,0.14);border-color:var(--green);}
-.creds-section{max-width:860px;margin:28px auto 0;border-top:1px solid var(--bdr);padding-top:28px;}
 .creds-toggle{display:flex;align-items:center;gap:10px;background:none;border:none;cursor:pointer;font-family:"Mulish",sans-serif;color:var(--muted);font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:0;transition:color 0.2s;}
 .creds-toggle:hover{color:var(--text);}
 .creds-toggle svg{transition:transform 0.25s;flex-shrink:0;}
@@ -244,6 +243,7 @@ body{min-height:100vh;background:var(--bg);font-family:"Mulish",sans-serif;color
     <div class="setup-tabs">
       <button class="setup-tab active" id="tabInstr" onclick="switchTab('instr')">Instructions</button>
       <button class="setup-tab" id="tabScript" onclick="switchTab('script')">Apps Script</button>
+      <button class="setup-tab" id="tabCreds" onclick="switchTab('creds')">My Credentials</button>
     </div>
     <div class="setup-body" id="bodyInstr">
       <div class="setup-step">
@@ -325,18 +325,7 @@ function respond(data) {
 }</div>
       <button class="copy-script-btn" id="copyScript" onclick="copyScript()">Copy Script</button>
     </div>
-  </div>
-</div>
-
-<!-- My Credentials -->
-<div class="creds-section">
-  <button class="creds-toggle" id="credsToggle" onclick="toggleCreds()">
-    <span class="dot-amber"></span>
-    My Credentials
-    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-  </button>
-  <div class="creds-panel" id="credsPanel">
-    <div class="creds-lock">
+    <div class="setup-body" id="bodyCreds" style="display:none;">
       <div class="creds-lock-title">Enter Password to Access</div>
       <div class="creds-pw-row">
         <input type="password" class="creds-pw-input" id="credsPwInput" placeholder="Password" onkeydown="if(event.key==='Enter')unlockCreds()"/>
@@ -344,7 +333,7 @@ function respond(data) {
       </div>
       <div class="creds-error" id="credsError">Incorrect password.</div>
       <div class="creds-vault" id="credsVault">
-        <div class="creds-item">
+        <div class="creds-item" style="margin-top:16px;">
           <div class="creds-item-label">Call Out Tracker — Apps Script URL</div>
           <div class="creds-item-row">
             <input type="text" class="creds-item-val" id="credsUrl" readonly/>
@@ -379,11 +368,18 @@ function toggleSetup(){
 }
 
 function switchTab(tab){
-  const isInstr=tab==='instr';
-  document.getElementById('bodyInstr').style.display=isInstr?'block':'none';
-  document.getElementById('bodyScript').style.display=isInstr?'none':'block';
-  document.getElementById('tabInstr').classList.toggle('active',isInstr);
-  document.getElementById('tabScript').classList.toggle('active',!isInstr);
+  document.getElementById('bodyInstr').style.display=tab==='instr'?'block':'none';
+  document.getElementById('bodyScript').style.display=tab==='script'?'block':'none';
+  document.getElementById('bodyCreds').style.display=tab==='creds'?'block':'none';
+  document.getElementById('tabInstr').classList.toggle('active',tab==='instr');
+  document.getElementById('tabScript').classList.toggle('active',tab==='script');
+  document.getElementById('tabCreds').classList.toggle('active',tab==='creds');
+  // Lock vault when switching away from credentials tab
+  if(tab!=='creds'){
+    document.getElementById('credsVault').style.display='none';
+    document.getElementById('credsPwInput').value='';
+    document.getElementById('credsError').style.display='none';
+  }
 }
 
 function copyScript(){
@@ -403,24 +399,12 @@ function copyScript(){
   }
 }
 
-function toggleCreds(){
-  const panel=document.getElementById('credsPanel');
-  const toggle=document.getElementById('credsToggle');
-  const open=panel.classList.toggle('open');
-  toggle.classList.toggle('open',open);
-  if(!open){
-    document.getElementById('credsVault').classList.remove('open');
-    document.getElementById('credsPwInput').value='';
-    document.getElementById('credsError').style.display='none';
-  }
-}
-
 function unlockCreds(){
   const pw=document.getElementById('credsPwInput').value;
   const err=document.getElementById('credsError');
   if(pw==='Powerback9927'){
     err.style.display='none';
-    document.getElementById('credsVault').classList.add('open');
+    document.getElementById('credsVault').style.display='block';
     document.getElementById('credsUrl').value='https://script.google.com/macros/s/AKfycby6smHfZX3hz5Gmp1v2Xd2BBZXL0NqPLkLZoRTDKp1m4hLomgqxA4PgJlXrJr-V_G7mTw/exec';
     try{document.getElementById('credsNotes').value=localStorage.getItem('dor-creds-notes')||'';}catch(e){}
   } else {
