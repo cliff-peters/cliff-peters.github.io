@@ -1,20 +1,22 @@
 # The DOR Suite
 
-A collection of workflow tools built for the Director of Rehabilitation. Simplifies daily operations from family communication to billing, meetings, and staff tracking.
+Clinical workflow tools for the Director of Rehabilitation in assisted living. Built by Cliff Peters.
+
+Live: https://cliff-peters.github.io
 
 ## Tools
 
-**Family Connect** - Generate therapy start, post-eval, update, transition, and fall follow-up emails.
+**Family Connect** — Generate PT/OT/ST family communication emails across every stage of the therapy lifecycle.
 
-**Unit Calc** - 8-minute rule unit calculator with multi-intervention and single entry modes.
+**Unit Calc** — 8-minute rule unit calculator with multi-intervention and single entry modes.
 
-**Game Plan** - Build structured team and one-on-one meeting agendas with outline formatting.
+**Game Plan** — Build structured team meeting and one-on-one agendas with topic selection and bullet points.
 
-**Call Out Tracker** - Log and track employee call outs by month with trends, per-employee breakdowns, and optional Google Sheets sync.
+**Call Out Tracker** — Log and monitor staff call outs by month with trends, summaries, and optional Google Sheets sync.
 
-## Google Sheets Setup
+**Skilled Language** — Searchable library of audit-defensible PT, OT, and ST documentation phrases.
 
-The Call Out Tracker supports optional cloud sync through Google Sheets. Setup instructions and the Apps Script code are included on the dashboard page.
+**Scribe** — EMR note generator for H&W 30-Day, Eval & Frequency, Discharge, and Post-Fall entries.
 
 ## Built With
 
