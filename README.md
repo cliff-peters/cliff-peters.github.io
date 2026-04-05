@@ -2,7 +2,7 @@
 
 Clinical workflow tools for the Director of Rehabilitation in assisted living. Built by Cliff Peters.
 
-Live: https://cliff-peters.github.io
+Live: [https://cliff-peters.github.io](https://cliff-peters.github.io)
 
 ## Tools
 
