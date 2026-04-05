@@ -19,12 +19,12 @@
   --blue:#5a9de6;--green:#3ecf7a;--amber:#f0a830;--red:#ef4444;
   --purple:#a78bfa;--teal:#2dd4bf;
   --text:#f0f2f5;--muted:#9ca3b4;
-  --logo-grad:linear-gradient(135deg,#4a90d9,#3ecf7a);--logo-text:#0c0f14;
+  --logo-gradient:linear-gradient(135deg,#4a90d9,#3ecf7a);--logo-text:#0c0f14;
 }
 body{min-height:100vh;background:var(--bg);font-family:"Mulish",sans-serif;color:var(--text);padding:48px 24px 80px;}
 ::-webkit-scrollbar{width:5px;}::-webkit-scrollbar-thumb{background:var(--bdr);border-radius:3px;}
 .header{max-width:860px;margin:0 auto 48px;text-align:center;}
-.header-logo{display:inline-flex;align-items:center;justify-content:center;width:60px;height:60px;background:var(--logo-grad);border-radius:14px;font-size:18px;font-weight:900;color:var(--logo-text);letter-spacing:-0.5px;flex-shrink:0;animation:softPulse 4s ease-in-out infinite;}
+.header-logo{display:inline-flex;align-items:center;justify-content:center;width:60px;height:60px;background:var(--logo-gradient);border-radius:14px;font-size:18px;font-weight:900;color:var(--logo-text);letter-spacing:-0.5px;flex-shrink:0;animation:softPulse 4s ease-in-out infinite;}
 .header-lockup{display:flex;align-items:center;justify-content:center;gap:18px;margin-bottom:14px;}
 @keyframes softPulse{0%,100%{box-shadow:0 0 0 0 rgba(74,144,217,0);}50%{box-shadow:0 0 0 8px rgba(74,144,217,0.12);}}
 .header-title{font-size:clamp(32px,4.5vw,44px);font-weight:700;line-height:1.05;margin-bottom:0;color:var(--text);letter-spacing:0.04em;}
@@ -78,8 +78,8 @@ body{min-height:100vh;background:var(--bg);font-family:"Mulish",sans-serif;color
 .tool-tag.tag-red{color:var(--red);}
 .tool-tag.tag-purple{color:var(--purple);}
 .tool-tag.tag-teal{color:var(--teal);}
-.footer{max-width:860px;margin:48px auto 0;display:flex;align-items:center;justify-content:center;gap:10px;border-top:1px solid var(--bdr);padding-top:28px;}
-.footer-logo{width:24px;height:24px;background:var(--logo-grad);border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:900;color:var(--logo-text);animation:softPulse 4s ease-in-out infinite;}
+.footer{max-width:860px;margin:48px auto 0;padding:24px 16px;display:flex;align-items:center;justify-content:center;gap:8px;border-top:1px solid var(--bdr);}
+.footer-logo{width:18px;height:18px;background:var(--logo-gradient);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:7px;font-weight:800;color:var(--logo-text);flex-shrink:0;}
 .footer-text{font-size:10px;font-weight:700;color:var(--muted);letter-spacing:0.04em;}
 @media(max-width:560px){
   body{padding:32px 16px 60px;}
@@ -186,7 +186,7 @@ body{min-height:100vh;background:var(--bg);font-family:"Mulish",sans-serif;color
 <!-- Footer -->
 <div class="footer">
   <div class="footer-logo">CP</div>
-  <div class="footer-text">Built by Cliff Peters</div>
+  <span class="footer-text">Built by Cliff Peters</span>
 </div>
 
 <script>
